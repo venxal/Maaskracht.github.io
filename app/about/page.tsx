@@ -1,206 +1,173 @@
-import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+"use client"
+
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { CheckCircle } from "lucide-react"
 
-export default function AboutPage() {
+export default function About() {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-[40vh] md:h-[50vh] bg-black">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://i.pinimg.com/736x/49/d6/22/49d62219a522dfb9a73571356752ec9a.jpg"
-            alt="Maaskracht Rotterdam Team"
-            fill
-            className="object-cover opacity-60"
-          />
-        </div>
-        <div className="relative z-10 container mx-auto h-full flex flex-col justify-center px-4 md:px-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">Over Ons</h1>
-          <div className="w-20 h-1 bg-red-600 mb-6"></div>
-          <p className="text-xl text-white max-w-2xl">
-            Leer meer over Maaskracht Rotterdam, onze missie en het team achter de boksclub.
-          </p>
-        </div>
+    <div className="min-h-screen bg-white">
+      <Header />
+
+      {/* Page Header */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 className="text-4xl font-bold text-foreground mb-4">About IndiContainers</h1>
+        <p className="text-lg text-muted max-w-2xl">
+          We're on a mission to reduce food waste, save families money, and make food safety simple and intuitive.
+        </p>
       </section>
 
-      {/* Founder Section */}
-      <section className="py-16 px-4 md:px-6 lg:px-8 bg-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl order-2 md:order-1">
-              <Image src="https://cdn.prod.elseone.nl/uploads/2024/07/Ontwerp-zonder-titel-2024-07-24T091736.320-1200x711.png?1" alt="Arjan Erkel" fill className="object-cover" />
-            </div>
-            <div className="space-y-6 order-1 md:order-2">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Arjan Erkel</h2>
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-1 bg-red-600"></div>
-                <p className="text-gray-600 font-medium">Oprichter</p>
-              </div>
-              <p className="text-lg text-gray-700">
-                Arjan Erkel is de oprichter van Maaskracht Rotterdam. Met zijn achtergrond in humanitair werk en zijn
-                passie voor boksen, heeft hij deze club opgericht om mensen zowel fysiek als mentaal sterker te maken.
-              </p>
-              <p className="text-lg text-gray-700">
-                Na zijn eigen ervaringen met tegenslag en herstel, gelooft Arjan sterk in de kracht van boksen als
-                middel om weerbaarheid, discipline en zelfvertrouwen te ontwikkelen.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Story Section */}
-      <section className="py-16 px-4 md:px-6 lg:px-8 bg-gray-100">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ons Verhaal</h2>
-            <div className="w-20 h-1 bg-red-600 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Maaskracht Rotterdam is ontstaan vanuit een visie om boksen toegankelijk te maken voor iedereen.
+      {/* Story Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-foreground">Our Story</h2>
+            <p className="text-muted leading-relaxed">
+              IndiContainers was founded by a team of food scientists and engineers frustrated by the amount of
+              perfectly good food being thrown away. We noticed that most households throw away 20-30% of their
+              purchases due to confusion about freshness dates.
+            </p>
+            <p className="text-muted leading-relaxed">
+              After years of research and testing, we developed our color-changing freshness strips – a simple, reliable
+              way to know exactly when food is still safe to eat, when to use it soon, and when it's time to discard it.
+            </p>
+            <p className="text-muted leading-relaxed">
+              Today, thousands of families across Europe are using IndiContainers to eat safer, waste less, and save
+              money every single day.
             </p>
           </div>
 
+          <div className="bg-gradient-to-br from-primary-light to-secondary-light rounded-2xl aspect-square flex items-center justify-center">
+            <div className="text-center">
+              <div className="text-6xl mb-4">🌱</div>
+              <p className="text-foreground font-bold text-lg">Growing Since 2015</p>
+              <p className="text-sm text-muted">Trusted by thousands</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Values */}
+      <section className="bg-primary-light/20 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Our Mission & Values</h2>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mb-4 text-white font-bold text-xl">
-                1
-              </div>
-              <h3 className="text-xl font-bold mb-2">Het Begin</h3>
-              <p className="text-gray-600">
-                Maaskracht Rotterdam werd in 2018 opgericht door Arjan Erkel, met als doel om boksen toegankelijk te
-                maken voor iedereen, ongeacht leeftijd of ervaring.
+            <div className="bg-white p-8 rounded-xl border border-border">
+              <CheckCircle className="w-8 h-8 text-primary mb-4" />
+              <h3 className="text-xl font-bold text-foreground mb-3">Sustainability</h3>
+              <p className="text-muted">
+                We believe reducing food waste is one of the most impactful ways individuals can help the environment.
+                Every meal saved is progress.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mb-4 text-white font-bold text-xl">
-                2
-              </div>
-              <h3 className="text-xl font-bold mb-2">Onze Groei</h3>
-              <p className="text-gray-600">
-                Vanaf een kleine groep enthousiastelingen is Maaskracht uitgegroeid tot een hechte gemeenschap van
-                boksers van alle niveaus, van beginners tot gevorderden.
+            <div className="bg-white p-8 rounded-xl border border-border">
+              <CheckCircle className="w-8 h-8 text-primary mb-4" />
+              <h3 className="text-xl font-bold text-foreground mb-3">Transparency</h3>
+              <p className="text-muted">
+                We're honest about how our product works. No hidden features, no apps, no subscriptions – just clear
+                color changes you can trust.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mb-4 text-white font-bold text-xl">
-                3
-              </div>
-              <h3 className="text-xl font-bold mb-2">Vandaag</h3>
-              <p className="text-gray-600">
-                Vandaag de dag staat Maaskracht Rotterdam bekend om zijn inclusieve aanpak, professionele trainingen en
-                de positieve impact die we hebben op het leven van onze leden.
+            <div className="bg-white p-8 rounded-xl border border-border">
+              <CheckCircle className="w-8 h-8 text-primary mb-4" />
+              <h3 className="text-xl font-bold text-foreground mb-3">Safety</h3>
+              <p className="text-muted">
+                Your family's safety is paramount. All our products meet strict EU food safety standards and are
+                independently tested.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Mission Section */}
-      <section className="py-16 px-4 md:px-6 lg:px-8 bg-black text-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Onze Missie</h2>
-              <div className="w-20 h-1 bg-red-600 mb-6"></div>
-              <p className="text-lg">
-                Bij Maaskracht Rotterdam geloven we dat boksen meer is dan alleen een sport. Het is een manier om jezelf
-                fysiek en mentaal te ontwikkelen, discipline te kweken en zelfvertrouwen op te bouwen.
-              </p>
-              <p className="text-lg">
-                Onze missie is om een inclusieve omgeving te creëren waar iedereen, ongeacht achtergrond of ervaring,
-                kan leren boksen en kan groeien als persoon.
-              </p>
-              <p className="text-lg">
-                We streven ernaar om niet alleen technische vaardigheden bij te brengen, maar ook waarden zoals respect,
-                doorzettingsvermogen en teamwork.
-              </p>
-            </div>
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="https://i.pinimg.com/736x/2f/07/ec/2f07ec5b654d9136b2b1a79a2819796f.jpg"
-                alt="Maaskracht Boxing Training"
-                fill
-                className="object-cover"
-              />
-            </div>
+      {/* Impact Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Our Impact</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="text-center bg-primary-light/20 rounded-xl p-8">
+            <p className="text-4xl font-bold text-primary mb-2">250K+</p>
+            <p className="text-foreground font-medium">Meals Saved</p>
+            <p className="text-sm text-muted">From the trash</p>
+          </div>
+
+          <div className="text-center bg-primary-light/20 rounded-xl p-8">
+            <p className="text-4xl font-bold text-primary mb-2">50K+</p>
+            <p className="text-foreground font-medium">Families Helped</p>
+            <p className="text-sm text-muted">Across Europe</p>
+          </div>
+
+          <div className="text-center bg-primary-light/20 rounded-xl p-8">
+            <p className="text-4xl font-bold text-primary mb-2">2.5M€</p>
+            <p className="text-foreground font-medium">Money Saved</p>
+            <p className="text-sm text-muted">By our community</p>
           </div>
         </div>
       </section>
 
       {/* Team Section */}
-      <section className="py-16 px-4 md:px-6 lg:px-8 bg-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ons Team</h2>
-            <div className="w-20 h-1 bg-red-600 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Maak kennis met de trainers en het team achter Maaskracht Rotterdam.
-            </p>
-          </div>
+      <section className="bg-foreground text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold mb-8 text-center">Leadership Team</h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Team Member 1 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <div className="relative h-80">
-                <Image src="/placeholder.svg?height=600&width=400" alt="Team Member" fill className="object-cover" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-20 h-20 rounded-full bg-primary mx-auto mb-4 flex items-center justify-center text-2xl">
+                👨‍🔬
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">Trainer Naam</h3>
-                <p className="text-red-600 font-medium mb-3">Hoofdtrainer</p>
-                <p className="text-gray-600">Korte beschrijving over de ervaring en expertise van deze trainer.</p>
-              </div>
+              <h3 className="text-xl font-bold mb-1">Dr. Marco Rossi</h3>
+              <p className="text-sm text-gray-400 mb-3">Founder & Food Science Lead</p>
+              <p className="text-gray-300 text-sm">
+                Ph.D. in Food Chemistry with 15+ years in food preservation technology.
+              </p>
             </div>
 
-            {/* Team Member 2 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <div className="relative h-80">
-                <Image src="/placeholder.svg?height=600&width=400" alt="Team Member" fill className="object-cover" />
+            <div className="text-center">
+              <div className="w-20 h-20 rounded-full bg-primary mx-auto mb-4 flex items-center justify-center text-2xl">
+                👩‍💼
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">Trainer Naam</h3>
-                <p className="text-red-600 font-medium mb-3">Bokstrainer</p>
-                <p className="text-gray-600">Korte beschrijving over de ervaring en expertise van deze trainer.</p>
-              </div>
+              <h3 className="text-xl font-bold mb-1">Elena Hoffman</h3>
+              <p className="text-sm text-gray-400 mb-3">Co-Founder & CEO</p>
+              <p className="text-gray-300 text-sm">
+                Serial entrepreneur with a passion for sustainable consumer products.
+              </p>
             </div>
 
-            {/* Team Member 3 */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
-              <div className="relative h-80">
-                <Image src="/placeholder.svg?height=600&width=400" alt="Team Member" fill className="object-cover" />
+            <div className="text-center">
+              <div className="w-20 h-20 rounded-full bg-primary mx-auto mb-4 flex items-center justify-center text-2xl">
+                👨‍💻
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">Trainer Naam</h3>
-                <p className="text-red-600 font-medium mb-3">Conditietrainer</p>
-                <p className="text-gray-600">Korte beschrijving over de ervaring en expertise van deze trainer.</p>
-              </div>
+              <h3 className="text-xl font-bold mb-1">Alex Chen</h3>
+              <p className="text-sm text-gray-400 mb-3">CTO & Product Lead</p>
+              <p className="text-gray-300 text-sm">
+                Design and engineering expert focused on elegant, user-friendly solutions.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 md:px-6 lg:px-8 bg-gray-100">
-        <div className="container mx-auto max-w-6xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Word onderdeel van Maaskracht Rotterdam</h2>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-8">
-            Klaar om de handschoenen aan te trekken? Kom langs voor een proefles of meld je direct aan!
+      <section className="bg-primary text-white py-16 mt-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-4">Join the Movement</h2>
+          <p className="text-lg mb-8 text-white/90">
+            Be part of a community that's reducing waste and making a real difference.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-red-600 hover:bg-red-700">
-              <Link href="/signup">
-                Meld je aan <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link href="/contact">Contact opnemen</Link>
-            </Button>
-          </div>
+          <Link
+            href="/shop"
+            className="inline-block bg-white text-primary px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition"
+          >
+            Get Started Today
+          </Link>
         </div>
       </section>
+
+      <Footer />
     </div>
   )
 }

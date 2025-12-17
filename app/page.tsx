@@ -1,122 +1,250 @@
-import Link from "next/link"
-import Image from "next/image"
-import { ArrowRight, Calendar, Clock, MapPin } from "lucide-react"
+"use client"
 
-import { Button } from "@/components/ui/button"
-import HeroSection from "@/components/hero-section"
-import TrainingSection from "@/components/training-section"
-import TestimonialSection from "@/components/testimonial-section"
-import LocationSection from "@/components/location-section"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
+import Link from "next/link"
+import { CheckCircle, Leaf, Lock, Zap, ArrowRight } from "lucide-react"
+import { useState, useEffect } from "react"
 
 export default function Home() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
   return (
-    <div className="flex flex-col min-h-screen">
-      <HeroSection />
+    <div className="min-h-screen bg-white">
+      <Header />
 
-      {/* About Preview Section */}
-      <section className="py-16 px-4 md:px-6 lg:px-8 bg-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Over Maaskracht Rotterdam</h2>
-              <p className="text-lg text-gray-700">
-                Maaskracht Rotterdam is opgericht door Arjan Erkel, met als doel om mensen door middel van boksen
-                mentaal en fysiek sterker te maken. Wij geloven dat iedereen kan boksen, ongeacht leeftijd of niveau.
-              </p>
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-1 bg-red-600"></div>
-                <p className="text-gray-600 font-medium">Opgericht door Arjan Erkel</p>
-              </div>
-              <Button asChild className="bg-red-600 hover:bg-red-700">
-                <Link href="/about">
-                  Lees meer over ons <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="https://maaskrachtrotterdam.com/wp-content/uploads/2024/01/00dc6747-fc87-4d01-90e2-9205990c26d8_1_105_c.jpeg"
-                alt="Maaskracht Boxing"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <TrainingSection />
-
-      {/* Quick Info Section */}
-      <section className="py-16 px-4 md:px-6 lg:px-8 bg-gray-100">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-md flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-4">
-                <Clock className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Trainingstijden</h3>
-              <p className="text-gray-600">
-                Maandag t/m vrijdag: 18:00 - 21:00
-                <br />
-                Zaterdag: 10:00 - 12:00
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-md flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-4">
-                <MapPin className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Locatie</h3>
-              <p className="text-gray-600">
-                Maaskrachtstraat 10
-                <br />
-                3071 Rotterdam
-              </p>
-              <Link href="/location" className="text-red-600 hover:underline mt-2">
-                Bekijk op kaart
+      {/* Hero Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div
+            className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          >
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+              See Your Food's Freshness at a Glance
+            </h1>
+            <p className="text-lg text-muted mb-8 leading-relaxed">
+              Smart freshness strips that change color as food spoils – so you can save money, eat safer, and stop
+              wasting food.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/shop"
+                className="bg-primary text-white px-8 py-4 rounded-lg font-medium hover:bg-primary-dark hover:shadow-lg transition flex items-center justify-center gap-2"
+              >
+                Shop Starter Kits
+                <ArrowRight size={18} />
+              </Link>
+              <Link
+                href="/how-it-works"
+                className="border-2 border-primary text-primary px-8 py-4 rounded-lg font-medium hover:bg-primary-light hover:shadow-lg transition text-center"
+              >
+                How It Works
               </Link>
             </div>
+          </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-md flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-4">
-                <Calendar className="h-8 w-8 text-white" />
+          {/* Hero Image */}
+          <div
+            className={`bg-gradient-to-br from-primary-light via-secondary-light to-primary-light/50 rounded-2xl p-12 aspect-square flex items-center justify-center transition-all duration-1000 ${isVisible ? "scale-100 opacity-100" : "scale-95 opacity-0"}`}
+          >
+            <div className="text-center">
+              <div className="w-24 h-32 bg-white rounded-lg shadow-2xl mx-auto mb-6 flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+                <span className="text-5xl">🥗</span>
               </div>
-              <h3 className="text-xl font-bold mb-2">Proefles</h3>
-              <p className="text-gray-600">Wil je een keer komen proberen? Boek een gratis proefles!</p>
-              <Button asChild className="mt-4 bg-red-600 hover:bg-red-700">
-                <Link href="/signup">Aanmelden</Link>
-              </Button>
+              <p className="text-foreground font-bold text-lg">Smart Container</p>
+              <p className="text-sm text-muted">with Freshness Strip</p>
             </div>
           </div>
         </div>
       </section>
 
-      <TestimonialSection />
-      <LocationSection />
+      {/* Problem Section */}
+      <section className="bg-primary-light/20 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Why This Matters</h2>
 
-      {/* CTA Section */}
-      <section className="py-16 px-4 md:px-6 lg:px-8 bg-black text-white">
-        <div className="container mx-auto max-w-6xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Klaar om te beginnen?</h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-            Word lid van Maaskracht Rotterdam en ontdek hoe boksen je fysiek en mentaal sterker maakt.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-red-600 hover:bg-red-700">
-              <Link href="/pricing">Bekijk prijzen</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white text-black hover:bg-white hover:text-black"
-            >
-              <Link href="/signup">Meld je aan</Link>
-            </Button>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Date Label Confusion",
+                description:
+                  '"Use by," "best before," "sell by" – they all mean something different. Most of us can\'t remember which is which, so we throw away food that\'s still perfectly good.',
+              },
+              {
+                title: "The Sniff Test Isn't Enough",
+                description:
+                  "Some harmful bacteria don't produce off-smells. You could be eating food that's unsafe without knowing it, or throwing away food that's actually fine.",
+              },
+              {
+                title: "The Result: Guessing",
+                description:
+                  "Is that chicken still good? Should I throw out the milk? These decisions happen dozens of times a week – and most of us get it wrong.",
+              },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white p-8 rounded-xl border border-border hover:border-primary hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2"
+              >
+                <h3 className="text-xl font-bold text-foreground mb-4">{item.title}</h3>
+                <p className="text-muted leading-relaxed">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* Benefits Section */}
+      <section className="bg-foreground text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold mb-12 text-center">Why You'll Love IndiContainers</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { icon: CheckCircle, title: "Save Money", desc: "Stop throwing away food you could have eaten." },
+              { icon: Lock, title: "Eat Safer", desc: "Know that your food is safe before you eat it." },
+              { icon: Leaf, title: "Reduce Waste", desc: "Help the planet while helping your wallet." },
+            ].map((item, idx) => (
+              <div key={idx} className="flex gap-4 group cursor-pointer">
+                <div className="flex-shrink-0">
+                  <item.icon className="w-8 h-8 text-primary group-hover:scale-125 transition-transform duration-300" />
+                </div>
+                <div>
+                  <h3 className="font-bold mb-2 text-lg">{item.title}</h3>
+                  <p className="text-gray-300">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+            {[
+              { icon: Zap, title: "No Apps or Gadgets", desc: "Just a simple color change. No batteries, no tech." },
+              {
+                icon: CheckCircle,
+                title: "EU Food Safety Standards",
+                desc: "Designed with the strictest food regulations in mind.",
+              },
+              {
+                icon: Leaf,
+                title: "Reusable & Eco-Friendly",
+                desc: "Your containers last for years. Strips are recyclable.",
+              },
+            ].map((item, idx) => (
+              <div key={idx} className="flex gap-4 group cursor-pointer">
+                <div className="flex-shrink-0">
+                  <item.icon className="w-8 h-8 text-primary group-hover:scale-125 transition-transform duration-300" />
+                </div>
+                <div>
+                  <h3 className="font-bold mb-2 text-lg">{item.title}</h3>
+                  <p className="text-gray-300">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 className="text-3xl font-bold text-foreground mb-4 text-center">Our Products</h2>
+        <p className="text-center text-muted mb-12 max-w-2xl mx-auto">
+          Simple, affordable solutions for keeping your food fresh and your family safe.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Product Card 1 */}
+          <div className="bg-white border border-border rounded-xl overflow-hidden hover:shadow-xl hover:border-primary transition-all duration-300 group">
+            <div className="bg-gradient-to-br from-primary-light to-secondary-light aspect-square flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+              <span className="text-6xl">📦</span>
+            </div>
+            <div className="p-6">
+              <h3 className="font-bold text-foreground mb-2">Starter Kit</h3>
+              <p className="text-sm text-muted mb-4">Container + 10 mixed strips</p>
+              <p className="text-lg font-bold text-primary mb-4">€12,99</p>
+              <button className="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary-dark transition">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          {/* Product Card 2 */}
+          <div className="bg-white border border-border rounded-xl overflow-hidden hover:shadow-xl hover:border-primary transition-all duration-300 group">
+            <div className="bg-gradient-to-br from-secondary-light to-primary-light aspect-square flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+              <span className="text-6xl">🥡</span>
+            </div>
+            <div className="p-6">
+              <h3 className="font-bold text-foreground mb-2">Smart Container</h3>
+              <p className="text-sm text-muted mb-4">Reusable storage box</p>
+              <p className="text-lg font-bold text-primary mb-4">€9,99</p>
+              <button className="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary-dark transition">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          {/* Product Card 3 */}
+          <div className="bg-white border border-border rounded-xl overflow-hidden hover:shadow-xl hover:border-primary transition-all duration-300 group">
+            <div className="bg-gradient-to-br from-accent/20 to-primary-light aspect-square flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+              <span className="text-6xl">🥩</span>
+            </div>
+            <div className="p-6">
+              <h3 className="font-bold text-foreground mb-2">Meat & Fish Strips</h3>
+              <p className="text-sm text-muted mb-4">20 indicator strips</p>
+              <p className="text-lg font-bold text-primary mb-4">€4,99</p>
+              <button className="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary-dark transition">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          {/* Product Card 4 */}
+          <div className="bg-white border border-border rounded-xl overflow-hidden hover:shadow-xl hover:border-primary transition-all duration-300 group">
+            <div className="bg-gradient-to-br from-primary-light to-accent/20 aspect-square flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+              <span className="text-6xl">🥛</span>
+            </div>
+            <div className="p-6">
+              <h3 className="font-bold text-foreground mb-2">Dairy Strips</h3>
+              <p className="text-sm text-muted mb-4">20 indicator strips</p>
+              <p className="text-lg font-bold text-primary mb-4">€4,99</p>
+              <button className="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary-dark transition">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center mt-12">
+          <Link
+            href="/shop"
+            className="inline-flex items-center gap-2 bg-foreground text-white px-8 py-3 rounded-lg font-medium hover:bg-foreground/90 hover:shadow-lg transition"
+          >
+            View All Products
+            <ArrowRight size={18} />
+          </Link>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-gradient-to-r from-primary to-secondary text-white py-16 mt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to Save Food, Money & Peace of Mind?</h2>
+          <p className="text-lg mb-8 text-white/90 max-w-2xl mx-auto">
+            Join thousands of eco-conscious families who are eating safer and wasting less.
+          </p>
+          <Link
+            href="/shop"
+            className="inline-block bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-gray-100 hover:shadow-lg transition"
+          >
+            Get Your Starter Kit Today
+          </Link>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   )
 }
